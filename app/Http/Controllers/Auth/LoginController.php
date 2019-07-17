@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Socialite;
+use App\User;
+use Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -36,4 +40,52 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    //ログインボタンからリンク
+    public function socialLogin($social)
+    {
+        return Socialite::driver($social)->redirect();
+
+
+    }
+
+    //Callback処理
+    public function handleProviderCallback($social)
+    {
+        try{
+            $login_info = Socialite::driver($social)->user();
+        }catch(Exception $ex){
+            return redirect('login/twitter');
+        }
+        $auth_user = $this->findOrCreate("TW", $login_info);
+        \Auth::login($auth_user, true);
+
+        return redirect()->to('/');
+
+    }
+
+    // ユーザー情報を返す。存在しない場合は新規登録
+    protected function findOrCreate(string $login_type, $user_info)
+    {
+        $user = User::where('login_type', $login_type)->where('login_id', "$login_type{$user_info->id}")->first();
+
+        if(! $user){
+            // 存在しなければ新規登録
+            $user = new User();
+            $user->name       = $user_info->name;
+            $user->status     = 1;
+            $user->login_type = $login_type;
+            $user->login_id   = "$login_type{$user_info->id}";
+            $user->avatar     = $user_info->avatar_original;
+            $user->save();
+        }else{
+            // ユーザー情報更新
+            $user->name   = $user_info->name;
+            $user->avatar = $user_info->avatar_original;
+            $user->save();
+        }
+
+        return $user;
+    }
+
 }

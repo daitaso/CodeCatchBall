@@ -43,5 +43,10 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+    'twitter' => [
+        'client_id' => env('TWITTER_API_ID'),
+        'client_secret' => env('TWITTER_API_SECRET'),
+        'redirect' => env('TWITTER_CALLBACKURL'),
+    ],
 
 ];
