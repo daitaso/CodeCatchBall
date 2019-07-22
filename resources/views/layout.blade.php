@@ -39,11 +39,27 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- メニューを右寄せ -->
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link " href="{{url("/home")}}">Login</a>
-                </li>
-            </ul>
+            @if( Auth::check() )
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{Auth::user()->avatar}}" class="rounded-circle mx-1" width="30" height="30" alt="Cinque Terre">
+                            <span class="text-primary">{{Auth::user()->name}}</span>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{url('/logout')}}">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            @else
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{url("/login/twitter")}}">Login</a>
+                    </li>
+                </ul>
+            @endif
             <!-- フォームを削除 -->
         </div>
     </nav>
@@ -53,7 +69,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted text-center">CodeCatchBall LittleTuber 2019 .All Rights Reserved.</p>
+        <p class="text-muted text-center">CodeCatchBall 2019 .All Rights Reserved.</p>
     </div>
 </footer>
 

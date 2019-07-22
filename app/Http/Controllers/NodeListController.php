@@ -10,9 +10,26 @@ class NodeListController extends Controller{
 
     public function index(Request $request){
 
+        \Log::info('NodeListControler@index');
+
         //クエリパラメータ取得
-        $thread_id = $request->input('t');
         $node_id   = $request->input('n');
+        $node_id = gzuncompress(base64_decode($node_id));
+
+        \Log::info('node_id '.$node_id);
+
+// MEMO
+//       $param = base64_encode(gzcompress('TW1041865535946752001_1'));
+//        \Log::info('param '.$param);
+
+        //記事テーブル取得
+        $nodes  = \App\Models\Node::where('node_id',$node_id)->get();
+
+        //子記事テーブル取得
+        $childs = \App\Models\Child::where('node_id',$node_id)->get();
+
+        \Log::info(count($nodes));
+        \Log::info(count($childs));
 
 //        //channels検索
 //        $channels = \App\Models\Channel::all();
@@ -40,6 +57,7 @@ class NodeListController extends Controller{
 //        }
 //
 //        return view('ranking',compact('results'));
+
         return view('node_list');
     }
 }

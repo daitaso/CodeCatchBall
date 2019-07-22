@@ -15,7 +15,6 @@ class CreateNodesTable extends Migration
     {
         Schema::create('nodes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('thread_id');
             $table->string('node_id');
             $table->string('comment');
             $table->text('code');

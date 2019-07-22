@@ -41,12 +41,18 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    // ログアウト
+    public function logout()
+    {
+        \Auth::logout();
+        return redirect()->to('/');
+
+    }
+
     //ログインボタンからリンク
     public function socialLogin($social)
     {
         return Socialite::driver($social)->redirect();
-
-
     }
 
     //Callback処理

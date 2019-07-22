@@ -11,14 +11,14 @@
 |
 */
 
-Auth::routes();
 Route::get('/', 'NodeListController@index');
 Route::get('/post', 'NodePostController@index');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//ログアウト
+Route::get('/logout', 'Auth\LoginController@logout');
 
-//ログインボタンからのリンク
-Route::get('/login/{social}', 'Auth\LoginController@socialLogin')->where('social', 'facebook|twitter');
 //コールバック用
+Route::get('/login/{social}', 'Auth\LoginController@socialLogin')->where('social', 'facebook|twitter');
 Route::get('/login/{social}/callback', 'Auth\LoginController@handleProviderCallback')->where('social', 'facebook|twitter');
