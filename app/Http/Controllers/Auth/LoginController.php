@@ -41,6 +41,17 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public  function  index(){
+        \Log::info('LoginControler@index');
+
+        if (Auth::check()) {
+            \Log::info('login sumi home he');
+            return redirect()->to('/home');
+        }
+
+        return 'LoginGamen';
+    }
+
     // ログアウト
     public function logout()
     {

@@ -12,7 +12,11 @@
 */
 
 Route::get('/', 'NodeListController@index');
+Route::get('/home', 'HomeController@index');
 Route::get('/post', 'NodePostController@index');
+Route::post('/post/post', 'NodePostController@post');
+
+Route::get('/login', 'Auth\LoginController@index');
 
 Auth::routes();
 
