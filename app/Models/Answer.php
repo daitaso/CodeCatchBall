@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace QuizMing\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Node extends Model
+class Answer extends Model
 {
     //
 }

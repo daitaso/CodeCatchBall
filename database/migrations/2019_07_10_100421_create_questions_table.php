@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChildsTable extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateChildsTable extends Migration
      */
     public function up()
     {
-        Schema::create('childs', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('node_id');
-            $table->string('child_node_id');
+            $table->string('question_id');
+            $table->string('user_id');
+            $table->text('question');
+            $table->string('correct_answer');
+            $table->integer('good_num');
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('created_at')->nullable();
         });
@@ -29,6 +32,6 @@ class CreateChildsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('childs');
+        Schema::dropIfExists('questions');
     }
 }

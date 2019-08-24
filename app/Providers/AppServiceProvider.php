@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace QuizMing\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

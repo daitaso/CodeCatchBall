@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace QuizMing\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Thread extends Model
+class Question extends Model
 {
     //
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace QuizMing\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use QuizMing\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Socialite;
-use App\User;
+use QuizMing\User;
 use Auth;
 
 class LoginController extends Controller
@@ -45,11 +45,10 @@ class LoginController extends Controller
         \Log::info('LoginControler@index');
 
         if (Auth::check()) {
-            \Log::info('login sumi home he');
             return redirect()->to('/home');
         }
 
-        return 'LoginGamen';
+        return ;
     }
 
     // ログアウト

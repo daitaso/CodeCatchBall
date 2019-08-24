@@ -170,11 +170,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        QuizMing\Providers\AppServiceProvider::class,
+        QuizMing\Providers\AuthServiceProvider::class,
+        // QuizMing\Providers\BroadcastServiceProvider::class,
+        QuizMing\Providers\EventServiceProvider::class,
+        QuizMing\Providers\RouteServiceProvider::class,
 
     ],
 

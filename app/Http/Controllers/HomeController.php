@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
-
-//use App\Channel;
+namespace QuizMing\Http\Controllers;
 
 use Illuminate\Http\Request;
 
@@ -18,9 +16,10 @@ class HomeController extends Controller{
             return redirect()->to('/login');
         }
 
-        $nodes  = \App\Models\Node::where('user_id',\Auth::user()->login_id)->get();
+        //出題した問題リスト
+        $questions = \QuizMing\Models\Question::where('user_id',\Auth::user()->login_id)->orderBy('created_at','desc')->get();
 
-        return view('home',compact('nodes'));
+        return view('home',compact('questions'));
 
     }
 }

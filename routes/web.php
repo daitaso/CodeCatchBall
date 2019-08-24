@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', 'NodeListController@index');
+Route::get('/', 'QuestionListController@index');
 Route::get('/home', 'HomeController@index');
-Route::get('/post', 'NodePostController@index');
-Route::post('/post/post', 'NodePostController@post');
-
+Route::get('/post', 'QuestionPostController@index');
+Route::post('/post/post', 'QuestionPostController@post');
+Route::post('/answer', 'QuestionPostController@answer');
+Route::post('/close', 'QuestionPostController@close');
+Route::post('/result', 'QuestionPostController@result');
 Route::get('/login', 'Auth\LoginController@index');
 
 Auth::routes();

@@ -6,7 +6,7 @@
             <div class="card mt-5">
                 <div class="card-header">ログイン</div>
                 <div class="card-body">
-                    <a href="{{ url('login/twitter')}}" class="btn btn-primary w-100"><i class="fa fa-twitter"></i> twitterでログインする</a>
+                    <a href="{{ url('login/twitter')}}" class="btn btn-primary w-100"><i class="fab fa-twitter"></i> twitterでログインする</a>
                 </div>
             </div>
         </div>

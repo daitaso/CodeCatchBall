@@ -3,7 +3,7 @@
     <head>
         <!--head-->
         <meta charset="utf-8">
-        <title>ソースコードのコミニュケーション|CodeRelay</title>
+        <title>QuizMing｜独断と偏見でクイズを作ろう！</title>
 
         <!--ファビコン-->
         <?php
@@ -32,7 +32,7 @@
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{url("/")}}">CODE <i class="fas fa-code-branch"></i> RELAY</a>
+        <a class="navbar-brand" href="{{url("/")}}">QuizMing</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,7 +40,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- メニューを右寄せ -->
             @if( Auth::check() )
-
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,7 +68,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted text-center">CodeCatchBall 2019 .All Rights Reserved.</p>
+        <p class="text-muted text-center">QuizMing 2019 .All Rights Reserved.</p>
     </div>
 </footer>
 
